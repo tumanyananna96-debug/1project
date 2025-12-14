@@ -4,6 +4,125 @@
     <body bgcolor=D8BFD8>
         <h1 align=center>Երևանի թիվ 174 հիմնական դպրոց</h1>
 		<img src=dprocinkar.jpg width=50% height=60% align=top >
+		<style>
+body {
+    background: #0b1d2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.tree { position: relative; width: 280px; height: 400px; }
+
+/* Աստղը թարթում է */
+.star {
+    color: gold;
+    font-size: 40px;
+    text-align: center;
+    animation: blink 0.5s infinite alternate;
+}
+
+/* Եռանկյուններ՝ վերևից ներքև փոքր → միջին → մեծ */
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    margin: -10px auto;
+}
+
+.triangle.top    { border-left: 100px solid transparent; border-right: 100px solid transparent; border-bottom: 100px solid #0a7a3d; }
+.triangle.middle { border-left: 120px solid transparent; border-right: 120px solid transparent; border-bottom: 140px solid #0a7a3d; }
+.triangle.bottom { border-left: 140px solid transparent; border-right: 140px solid transparent; border-bottom: 180px solid #0a7a3d; }
+
+/* Լույսերը թարթում են բնական */
+.light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    animation: blink 0.6s infinite alternate;
+}
+
+/* Լույսերի դիրքեր՝ տոկոսներով ամբողջ տոնածառի վրա */
+.light.red      { background: red;      left: 30%;  top: 20%;  animation-delay: 0s; }
+.light.blue     { background: blue;     left: 60%;  top: 15%;  animation-delay: 0.2s; }
+.light.yellow   { background: yellow;   left: 20%;  top: 95%;  animation-delay: 0.4s; }
+.light.pink     { background: hotpink;  left: 50%;  top: 30%;  animation-delay: 0.1s; }
+.light.cyan     { background: cyan;     left: 40%;  top: 40%;  animation-delay: 0.3s; }
+.light.orange   { background: orange;   left: 70%;  top: 45%;  animation-delay: 0.5s; }
+.light.green    { background: lime;     left: 55%;  top: 55%;  animation-delay: 0.2s; }
+.light.purple   { background: purple;   left: 35%;  top: 60%;  animation-delay: 0.4s; }
+.light.pink2    { background: deeppink;  left: 65%;  top: 65%;  animation-delay: 0.3s; }
+.light.lightblue{ background: lightblue;left: 25%;  top: 70%;  animation-delay: 0.2s; }
+.light.gold     { background: gold;     left: 50%;  top: 75%;  animation-delay: 0.1s; }
+.light.lime     { background: limegreen;left: 60%;  top: 80%;  animation-delay: 0.3s; }
+.light.orange2  { background: darkorange; left: 40%; top: 85%;  animation-delay: 0.4s; }
+.light.red2     { background: crimson;  left: 70%;  top: 90%;  animation-delay: 0.2s; }
+
+/* Թարթող անիմացիա */
+@keyframes blink {
+    0%   { opacity: 0.2; transform: scale(0.8);}
+    50%  { opacity: 1;   transform: scale(1.2);}
+    100% { opacity: 0.2; transform: scale(0.8);}
+	
+/* Ձյուն */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    0%   { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(100vh) translateX(20px); }
+}
+</style>
+</head>
+<body>
+<div class="tree">
+    <div class="star">★</div>
+
+    <div class="triangle top"></div>
+    <div class="triangle middle"></div>
+    <div class="triangle bottom"></div>
+
+    <div class="light red"></div>
+    <div class="light blue"></div>
+    <div class="light yellow"></div>
+    <div class="light pink"></div>
+    <div class="light cyan"></div>
+    <div class="light.orange"></div>
+    <div class="light green"></div>
+    <div class="light purple"></div>
+    <div class="light pink2"></div>
+    <div class="light lightblue"></div>
+    <div class="light gold"></div>
+    <div class="light lime"></div>
+    <div class="light orange2"></div>
+    <div class="light red2"></div>
+</div>
+<script>
+// Ստեղծում ենք ձյուն
+const snowCount = 50;
+for(let i=0;i<snowCount;i++){
+    let snow = document.createElement('div');
+    snow.classList.add('snowflake');
+    let size = Math.random()*5 + 2; // 2px-7px
+    snow.style.width = size+'px';
+    snow.style.height = size+'px';
+    snow.style.left = Math.random()*100 + 'vw';
+    snow.style.animationDuration = (Math.random()*5 + 5) + 's'; // 5-10 վայրկյան
+    snow.style.opacity = Math.random();
+    document.body.appendChild(snow);
+}
+</script>
 		
 		<p style=font-size:24px>
 		    Մայրաքաղաքի պաշտոնական «yerevan.am» կայքի տվյալներով, Երևանի հ. 174 հիմնական դպրոցը հիմնադրվել է 1979թ.։
@@ -35,6 +154,7 @@
 		<a href=https://1drv.ms/v/c/d3bf261491ad6d6d/IQD7gBw0t_uoR4ltVsSnGtXqARm-WZuhPFzOs02BBIo4dYc type=video/mp4>Տեսանյութ</a>
 	</body>
 </html>
+
 
 
 
